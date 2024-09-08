@@ -25,6 +25,10 @@ function Home() {
         getPreferredVideos();  
     }, []);
 
+    useEffect(() => {
+        console.log('Preferred Videos:', preferredVideos);
+    }, [preferredVideos]);
+
     const getPreferredVideos = async () => {
         try {
             const token = ACCESS_TOKEN(); 

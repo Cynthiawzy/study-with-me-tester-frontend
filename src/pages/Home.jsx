@@ -28,7 +28,7 @@ function Home() {
     const getPreferredVideos = async () => {
         try {
             const token = ACCESS_TOKEN(); 
-            const response = await axios.get('http://127.0.0.1:8000/api/video-preferences/', {
+            const response = await axios.get('https://study-with-me-tester-52875f580cdc.herokuapp.com/api/video-preferences/', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -51,7 +51,7 @@ function Home() {
                 if (!token) {
                     throw new Error('No access token available');
                 }
-                const response = await axios.post('http://127.0.0.1:8000/api/video-preferences/', 
+                const response = await axios.post('https://study-with-me-tester-52875f580cdc.herokuapp.com/api/video-preferences/', 
                     { 
                         mood: currentVideoMood,
                         video_url: currentVideoUrl,
@@ -72,7 +72,7 @@ function Home() {
 
     const deletePreferredVideo = (id) => {
         const token = ACCESS_TOKEN(); // Retrieve the access token
-        api.delete(`http://127.0.0.1:8000/api/video-preferences/delete/${id}/`, {
+        api.delete(`https://study-with-me-tester-52875f580cdc.herokuapp.com/api/video-preferences/delete/${id}/`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

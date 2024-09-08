@@ -25,10 +25,6 @@ function Home() {
         getPreferredVideos();  
     }, []);
 
-    useEffect(() => {
-        console.log('Preferred Videos:', preferredVideos);
-    }, [preferredVideos]);
-
     const getPreferredVideos = async () => {
         try {
             const token = ACCESS_TOKEN(); 
@@ -294,6 +290,7 @@ function Home() {
                                             alt={video.title}
                                             className="video-thumbnail"
                                             onClick={() => {
+                                                console.log("Clicked saved video:", video);
                                                 console.log("Clicked saved video ID:", video.video_id); // Log the clicked video ID
                                                 console.log("Clicked saved video Title:", video.title); // Log the clicked video title
                                                 if (video.video_id) {

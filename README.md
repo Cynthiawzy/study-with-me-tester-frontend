@@ -42,21 +42,46 @@ The backend is hosted on Heroku:
    ```bash
    cd study-with-me-tester
    python -m venv env
-   source env/bin/activate  
+   source env/bin/activate  # On Windows use `env\Scripts\activate`
    pip install -r requirements.txt
    ```
 
-4. Start the development server:
+3. Setup Environment Variables:
+
+   Create a .env file in the root directory your study-with-me-tester-frontend directory with the following content:
+   ```bash
+   VITE_API_URL=https://study-with-me-tester-52875f580cdc.herokuapp.com
+   VITE_YOUTUBE_API_KEY=YOUR_YOUTUBE_API_KEY
+   ```
+   Replace YOUR_YOUTUBE_API_KEY with your actual YouTube API key, which you can obtain from the YouTube Developer Console.
+
+   Obtaining Your API Key
+   To get your YouTube API key:
+   
+   Go to the Google Cloud Console.
+   Create a new project or select an existing one.
+   Navigate to the API & Services > Credentials page.
+   Click on "Create Credentials" and select "API Key".
+   Copy the API key and use it in your .env file.
+   
+5. Start the development server:
+ 
    ```bash
    npm run dev
    ```
 
-5. Run the Application:
+6. Run the Application:
+   
    For the Backend
+   ```bash
    python manage.py runserver
+   ```
    The backend will be available at http://localhost:8081/
 
    For the Frontend
+   ```bash
    npm start
+   ```
+   The frontend will be available at http://localhost:5176/
 
 

@@ -33,6 +33,7 @@ function Home() {
                     'Authorization': `Bearer ${token}`
                 }
             });
+            console.log("Fetched preferred videos:", response.data);
             setPreferredVideos(response.data);
         } catch (error) {
             console.error('Error fetching preferred videos:', error.response ? error.response.data : error.message);
@@ -45,7 +46,7 @@ function Home() {
         const currentVideoMood = mood;
         const thumbnailUrl = video ? `https://img.youtube.com/vi/${video.videoId}/default.jpg` : "";
     
-        if (currentVideoTitle && currentVideoUrl) {
+        if (currentVideoTitle && currentVideoUrl && video.videoId) {
             try {
                 const token = ACCESS_TOKEN(); 
                 if (!token) {
@@ -55,6 +56,7 @@ function Home() {
                     { 
                         mood: currentVideoMood,
                         video_url: currentVideoUrl,
+                        video_id: video.videoId,
                         title: currentVideoTitle,
                         thumbnail_url: thumbnailUrl,
                     }, {
@@ -240,12 +242,6 @@ function Home() {
         setSavedVideoIndex((prevIndex) => Math.max(prevIndex - 3, 0));
     };
 
-    const extractVideoIdFromUrl = (url) => {
-        const regex = /(?:https?:\/\/)?(?:www\.)?youtube\.com\/(?:watch\?v=|embed\/|v\/|.+\?v=)?([^"&?\/\s]{11})/;
-        const match = url.match(regex);
-        return match ? match[1] : null;
-    };
-
 
     return (
         <div className="home-container">
@@ -296,12 +292,11 @@ function Home() {
                                             alt={video.title}
                                             className="video-thumbnail"
                                             onClick={() => {
-                                                const videoId = extractVideoIdFromUrl(video.video_url);
+                                                console.log("Video ID:", video.video_id);
                                                 console.log("Clicked saved video URL:", video.video_url);
-                                                console.log("Clicked saved video ID:", video.video_id); // Log the clicked video ID
                                                 console.log("Clicked saved video Title:", video.title); // Log the clicked video title
-                                                if (videoId) {
-                                                    setVideo({ title: video.title, videoId: videoId });
+                                                if (video.video_id) {
+                                                    setVideo({ title: video.title, videoId: video.video_id });
                                                 } else {
                                                     console.error("Video ID is undefined or missing");
                                             }}}

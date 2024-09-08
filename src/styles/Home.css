@@ -1,0 +1,214 @@
+.home-container {
+    text-align: center;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+select {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    appearance: none; 
+    width: 300px;
+    text-align: center;
+    cursor: pointer;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:hover, select:focus {
+    border-color: #66afe9;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+    outline: none; 
+}
+
+button[type="submit"] {
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:active {
+    background-color: #004494;
+}
+
+header {
+    position: relative;
+    text-align: right;
+    padding: 10px;
+}
+
+.video-container {
+    margin-top: 20px;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+.video-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.save-button {
+    background-color: #28a745;
+}
+
+.save-button:hover {
+    background-color: #218838;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.save-button:active {
+    background-color: #1e7e34;
+}
+
+button.prev-video, button.next-video, .save-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 120px; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button.prev-video, button.next-video {
+    background-color: #007BFF;
+}
+
+button.prev-video:hover, button.next-video:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button.prev-video:active, button.next-video:active {
+    background-color: #004494;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.carousel-video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    flex: 1;  
+    max-width: 30%; 
+    box-sizing: border-box;
+}
+
+.video-thumbnail {
+    width: 100%; 
+    height: auto;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.prev-carousel, .next-carousel {
+    background-color: transparent;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.prev-carousel {
+    left: -50px;  
+}
+
+.next-carousel {
+    right: -50px;  
+}
+
+.carousel-container.fewer-than-three .carousel {
+    justify-content: space-around; 
+}
+
+.carousel-container.fewer-than-three .carousel-video {
+    max-width: 40%; 
+}
+
+.video-thumbnail {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.video-title {
+    display: inline-block;
+    max-width: 400px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.video-title:hover {
+    color: #007BFF;
+}
+
+.video-title[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 1000;
+    transform: translate(-50%, -130%);
+}

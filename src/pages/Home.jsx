@@ -240,6 +240,12 @@ function Home() {
         setSavedVideoIndex((prevIndex) => Math.max(prevIndex - 3, 0));
     };
 
+    const extractVideoIdFromUrl = (url) => {
+        const regex = /(?:https?:\/\/)?(?:www\.)?youtube\.com\/(?:watch\?v=|embed\/|v\/|.+\?v=)?([^"&?\/\s]{11})/;
+        const match = url.match(regex);
+        return match ? match[1] : null;
+    };
+
 
     return (
         <div className="home-container">
@@ -290,11 +296,12 @@ function Home() {
                                             alt={video.title}
                                             className="video-thumbnail"
                                             onClick={() => {
-                                                console.log("Clicked saved video:", video);
+                                                const videoId = extractVideoIdFromUrl(video.video_url);
+                                                console.log("Clicked saved video URL:", video.video_url);
                                                 console.log("Clicked saved video ID:", video.video_id); // Log the clicked video ID
                                                 console.log("Clicked saved video Title:", video.title); // Log the clicked video title
-                                                if (video.video_id) {
-                                                    setVideo({ title: video.title, videoId: video.video_id });
+                                                if (videoId) {
+                                                    setVideo({ title: video.title, videoId: videoId });
                                                 } else {
                                                     console.error("Video ID is undefined or missing");
                                             }}}

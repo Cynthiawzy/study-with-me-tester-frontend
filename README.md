@@ -10,78 +10,26 @@ You can access the live version of the app here:
 The backend is hosted on Heroku:  
 [Backend (Django) - Heroku](https://study-with-me-tester-52875f580cdc.herokuapp.com)
 
+## Features
+
+User Authentication: Register and log in securely to save your favorite videos and preferences.
+
+Mood-based Video Selection: Choose from different atmospheres (e.g., relaxed or intense) for a customized study experience.
+
+Personalized Study Sessions: The app remembers your preferences for future study sessions.
+
 ## Tech Stack
 
-**Frontend:**
-- React
-- Vite
-- Axios
+Frontend: React, Vite, Axios
 
-**Backend:**
-- Django
-- Django REST Framework
-- Heroku (for deployment)
+Backend: Django, Django REST Framework
 
-## Installation
+APIs: YouTube API for video retrieval
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Cynthiawzy/study-with-me-tester-frontend.git
-   git clone https://github.com/yourusername/study-with-me-tester.git
-   ```
+## Usage
 
-2. Install Dependencies:
-   
-   For the Frontend
-   ```bash
-   cd study-with-me-tester-frontend
-   npm install
-   ```
+To use the app, visit the live demo linked above. From there, you can:
 
-   For the Backend
-   ```bash
-   cd study-with-me-tester
-   python -m venv env
-   source env/bin/activate  # On Windows use `env\Scripts\activate`
-   pip install -r requirements.txt
-   ```
-
-3. Setup Environment Variables:
-
-   Create a .env file in the root directory your study-with-me-tester-frontend directory with the following content:
-   ```bash
-   VITE_API_URL=https://study-with-me-tester-52875f580cdc.herokuapp.com
-   VITE_YOUTUBE_API_KEY=YOUR_YOUTUBE_API_KEY
-   ```
-   Replace YOUR_YOUTUBE_API_KEY with your actual YouTube API key, which you can obtain from the YouTube Developer Console.
-
-   Obtaining Your API Key
-   To get your YouTube API key:
-   
-   Go to the Google Cloud Console.
-   Create a new project or select an existing one.
-   Navigate to the API & Services > Credentials page.
-   Click on "Create Credentials" and select "API Key".
-   Copy the API key and use it in your .env file.
-   
-5. Start the development server:
- 
-   ```bash
-   npm run dev
-   ```
-
-6. Run the Application:
-   
-   For the Backend
-   ```bash
-   python manage.py runserver
-   ```
-   The backend will be available at http://localhost:8081/
-
-   For the Frontend
-   ```bash
-   npm start
-   ```
-   The frontend will be available at http://localhost:5176/
-
-
+1. Register/Login: Create an account or log in with your credentials.
+2. Select Mood: Choose a mood to tailor your study environment.
+3. Enjoy Study Videos: The app will display curated study videos based on your selection.

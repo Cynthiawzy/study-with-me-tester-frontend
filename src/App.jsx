@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import LandingPage from "./pages/LandingPage"; 
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function Logout() {
@@ -22,6 +23,10 @@ function App() {
       <Routes>
         <Route
           path="/"
+          element={<LandingPage />} 
+        />
+        <Route
+          path="/home"
           element={
             <ProtectedRoute>
               <Home />

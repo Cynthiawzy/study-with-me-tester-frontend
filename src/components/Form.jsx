@@ -23,7 +23,7 @@ function Form({ route, method }) {
             console.log("Registration successful", res);
             if (method === "login") {
                 setTokens(res.data.access, res.data.refresh);
-                navigate("/")
+                navigate("/home")
             } else {
                 navigate("/login")
             }
